@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Created-By: Maven Jar Plugin 3.2.0
+Build-Jdk-Spec: 11
+Specification-Title: resolver-integration
+Specification-Version: 1.7
+Implementation-Title: resolver-integration
+Build-Time: 2024-10-01T16:02:51+0300
+Git-Commit-Id: 5fb0e33c3f0b27d59723d97bb1e2e832d415b40d
+Implementation-Version: 1.6-4-g5fb0e33-dirty
+
