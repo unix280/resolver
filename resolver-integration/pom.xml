@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.airlift.resolver</groupId>
         <artifactId>resolver-root</artifactId>
-        <version>1.7-SNAPSHOT</version>
+        <version>1.7.4-wxd</version>
     </parent>
 
     <groupId>io.airlift.resolver</groupId>
@@ -30,8 +30,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.sonatype.aether</groupId>
-            <artifactId>aether-api</artifactId>
+            <groupId>org.apache.maven.resolver</groupId>
+            <artifactId>maven-resolver-api</artifactId>
             <scope>test</scope>
         </dependency>
 
