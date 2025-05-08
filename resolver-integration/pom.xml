@@ -4,10 +4,9 @@
     <parent>
         <groupId>io.airlift.resolver</groupId>
         <artifactId>resolver-root</artifactId>
-        <version>1.7.4-wxd</version>
+        <version>1.7-SNASPSHOT</version>
     </parent>
 
-    <groupId>io.airlift.resolver</groupId>
     <artifactId>resolver-integration</artifactId>
     <packaging>jar</packaging>
 

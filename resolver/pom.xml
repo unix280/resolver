@@ -4,14 +4,14 @@
     <parent>
         <groupId>io.airlift.resolver</groupId>
         <artifactId>resolver-root</artifactId>
-        <version>1.7.4-wxd</version>
+        <version>1.7-SNASPSHOT</version>
     </parent>
 
-    <groupId>io.airlift.resolver</groupId>
     <artifactId>resolver</artifactId>
 
     <properties>
         <air.main.basedir>${project.parent.basedir}</air.main.basedir>
+        <dep.slf4j.version>2.0.16</dep.slf4j.version>
     </properties>
 
     <dependencies>
@@ -98,6 +98,14 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>${dep.slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${dep.slf4j.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>

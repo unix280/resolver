@@ -2,14 +2,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.airlift</groupId>
+        <groupId>com.facebook.airlift</groupId>
         <artifactId>airbase</artifactId>
-        <version>134</version>
+        <version>105</version>
     </parent>
 
     <groupId>io.airlift.resolver</groupId>
     <artifactId>resolver-root</artifactId>
-    <version>1.7.4-wxd</version>
+    <version>1.7-SNASPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Resolve the dependencies of Maven coordinates or POM file</description>
@@ -17,8 +17,8 @@
     <inceptionYear>2013</inceptionYear>
 
     <scm>
-        <connection>scm:git:git://github.com/airlift/resolver.git</connection>
-        <url>https://github.com/airlift/resolver</url>
+        <connection>scm:git:git://github.com/prestodb/resolver.git</connection>
+        <url>https://github.com/prestodb/resolver</url>
         <tag>HEAD</tag>
     </scm>
 
