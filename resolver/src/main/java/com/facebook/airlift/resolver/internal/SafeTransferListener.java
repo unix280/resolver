@@ -1,4 +1,4 @@
-package io.airlift.resolver.internal;
+package com.facebook.airlift.resolver.internal;
 
 
 import org.eclipse.aether.RepositorySystemSession;
@@ -12,12 +12,12 @@ import org.slf4j.LoggerFactory;
 import java.util.Objects;
 
 class SafeTransferListener extends AbstractTransferListener {
-    private static final Logger LOGGER = LoggerFactory.getLogger(io.airlift.resolver.internal.SafeTransferListener.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SafeTransferListener.class);
     private final TransferListener listener;
 
     public static TransferListener wrap(RepositorySystemSession session) {
         TransferListener listener = session.getTransferListener();
-        return listener == null ? null : new io.airlift.resolver.internal.SafeTransferListener(listener);
+        return listener == null ? null : new SafeTransferListener(listener);
     }
 
     protected SafeTransferListener(RepositorySystemSession session) {

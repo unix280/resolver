@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.airlift.resolver;
+package com.facebook.airlift.resolver;
 
 import org.eclipse.aether.artifact.Artifact;
 import org.eclipse.aether.artifact.DefaultArtifact;
@@ -20,8 +20,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.airlift.resolver.ArtifactResolver.MAVEN_CENTRAL_URI;
-import static io.airlift.resolver.ArtifactResolver.USER_LOCAL_REPO;
+import static com.facebook.airlift.resolver.ArtifactResolver.MAVEN_CENTRAL_URI;
+import static com.facebook.airlift.resolver.ArtifactResolver.USER_LOCAL_REPO;
 
 public class Main
 {

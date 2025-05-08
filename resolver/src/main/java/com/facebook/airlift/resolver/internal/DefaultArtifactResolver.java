@@ -1,4 +1,4 @@
-package io.airlift.resolver.internal;
+package com.facebook.airlift.resolver.internal;
 
 import java.io.File;
 import java.io.IOException;
@@ -65,7 +65,7 @@ import org.slf4j.LoggerFactory;
 public class DefaultArtifactResolver implements ArtifactResolver, Service {
     private static final String CONFIG_PROP_SNAPSHOT_NORMALIZATION = "aether.artifactResolver.snapshotNormalization";
     private static final String CONFIG_PROP_SIMPLE_LRM_INTEROP = "aether.artifactResolver.simpleLrmInterop";
-    private static final Logger LOGGER = LoggerFactory.getLogger(io.airlift.resolver.internal.DefaultArtifactResolver.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DefaultArtifactResolver.class);
     private FileProcessor fileProcessor;
     private RepositoryEventDispatcher repositoryEventDispatcher;
     private VersionResolver versionResolver;
@@ -109,56 +109,56 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
 
     /** @deprecated */
     @Deprecated
-    public io.airlift.resolver.internal.DefaultArtifactResolver setLoggerFactory(org.eclipse.aether.spi.log.LoggerFactory loggerFactory) {
+    public DefaultArtifactResolver setLoggerFactory(org.eclipse.aether.spi.log.LoggerFactory loggerFactory) {
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setFileProcessor(FileProcessor fileProcessor) {
+    public DefaultArtifactResolver setFileProcessor(FileProcessor fileProcessor) {
         this.fileProcessor = (FileProcessor)Objects.requireNonNull(fileProcessor, "file processor cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setRepositoryEventDispatcher(RepositoryEventDispatcher repositoryEventDispatcher) {
+    public DefaultArtifactResolver setRepositoryEventDispatcher(RepositoryEventDispatcher repositoryEventDispatcher) {
         this.repositoryEventDispatcher = (RepositoryEventDispatcher)Objects.requireNonNull(repositoryEventDispatcher, "repository event dispatcher cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setVersionResolver(VersionResolver versionResolver) {
+    public DefaultArtifactResolver setVersionResolver(VersionResolver versionResolver) {
         this.versionResolver = (VersionResolver)Objects.requireNonNull(versionResolver, "version resolver cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setUpdateCheckManager(UpdateCheckManager updateCheckManager) {
+    public DefaultArtifactResolver setUpdateCheckManager(UpdateCheckManager updateCheckManager) {
         this.updateCheckManager = (UpdateCheckManager)Objects.requireNonNull(updateCheckManager, "update check manager cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setRepositoryConnectorProvider(RepositoryConnectorProvider repositoryConnectorProvider) {
+    public DefaultArtifactResolver setRepositoryConnectorProvider(RepositoryConnectorProvider repositoryConnectorProvider) {
         this.repositoryConnectorProvider = (RepositoryConnectorProvider)Objects.requireNonNull(repositoryConnectorProvider, "repository connector provider cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setRemoteRepositoryManager(RemoteRepositoryManager remoteRepositoryManager) {
+    public DefaultArtifactResolver setRemoteRepositoryManager(RemoteRepositoryManager remoteRepositoryManager) {
         this.remoteRepositoryManager = (RemoteRepositoryManager)Objects.requireNonNull(remoteRepositoryManager, "remote repository provider cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setSyncContextFactory(SyncContextFactory syncContextFactory) {
+    public DefaultArtifactResolver setSyncContextFactory(SyncContextFactory syncContextFactory) {
         this.syncContextFactory = (SyncContextFactory)Objects.requireNonNull(syncContextFactory, "sync context factory cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setOfflineController(OfflineController offlineController) {
+    public DefaultArtifactResolver setOfflineController(OfflineController offlineController) {
         this.offlineController = (OfflineController)Objects.requireNonNull(offlineController, "offline controller cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setArtifactResolverPostProcessors(Map<String, ArtifactResolverPostProcessor> artifactResolverPostProcessors) {
+    public DefaultArtifactResolver setArtifactResolverPostProcessors(Map<String, ArtifactResolverPostProcessor> artifactResolverPostProcessors) {
         this.artifactResolverPostProcessors = (Map)Objects.requireNonNull(artifactResolverPostProcessors, "artifact resolver post-processors cannot be null");
         return this;
     }
 
-    public io.airlift.resolver.internal.DefaultArtifactResolver setRemoteRepositoryFilterManager(RemoteRepositoryFilterManager remoteRepositoryFilterManager) {
+    public DefaultArtifactResolver setRemoteRepositoryFilterManager(RemoteRepositoryFilterManager remoteRepositoryFilterManager) {
         this.remoteRepositoryFilterManager = (RemoteRepositoryFilterManager)Objects.requireNonNull(remoteRepositoryFilterManager, "remote repository filter manager cannot be null");
         return this;
     }
@@ -213,7 +213,7 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
         boolean simpleLrmInterop = ConfigUtils.getBoolean(session, false, new String[]{"aether.artifactResolver.simpleLrmInterop"});
         LocalRepositoryManager lrm = session.getLocalRepositoryManager();
         WorkspaceReader workspace = session.getWorkspaceReader();
-        List<io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup> groups = new ArrayList();
+        List<DefaultArtifactResolver.ResolutionGroup> groups = new ArrayList();
         RemoteRepositoryFilter filter = this.remoteRepositoryFilterManager.getRemoteRepositoryFilter(session);
         Iterator var10 = requests.iterator();
 
@@ -310,7 +310,7 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
 
                         LOGGER.debug("Resolving artifact {} from {}", artifact, remoteRepositories);
                         AtomicBoolean resolved = new AtomicBoolean(false);
-                        Iterator<io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup> groupIt = groups.iterator();
+                        Iterator<DefaultArtifactResolver.ResolutionGroup> groupIt = groups.iterator();
                         Iterator var23 = ((List)filteredRemoteRepositories).iterator();
 
                         while(true) {
@@ -334,10 +334,10 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
                                 }
                             }
 
-                            io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup group = null;
+                            DefaultArtifactResolver.ResolutionGroup group = null;
 
                             while(groupIt.hasNext()) {
-                                io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup t = (io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup)groupIt.next();
+                                DefaultArtifactResolver.ResolutionGroup t = (DefaultArtifactResolver.ResolutionGroup)groupIt.next();
                                 if (t.matches(repo)) {
                                     group = t;
                                     break;
@@ -345,12 +345,12 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
                             }
 
                             if (group == null) {
-                                group = new io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup(repo);
+                                group = new DefaultArtifactResolver.ResolutionGroup(repo);
                                 groups.add(group);
                                 groupIt = Collections.emptyIterator();
                             }
 
-                            group.items.add(new io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionItem(trace, artifact, resolved, result, local, repo));
+                            group.items.add(new DefaultArtifactResolver.ResolutionItem(trace, artifact, resolved, result, local, repo));
                         }
                     }
                 }
@@ -359,7 +359,7 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
             var10 = groups.iterator();
 
             while(var10.hasNext()) {
-                io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup group = (io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup)var10.next();
+                DefaultArtifactResolver.ResolutionGroup group = (DefaultArtifactResolver.ResolutionGroup)var10.next();
                 this.performDownloads(session, group);
             }
 
@@ -441,7 +441,7 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
         return file;
     }
 
-    private void performDownloads(RepositorySystemSession session, io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup group) {
+    private void performDownloads(RepositorySystemSession session, DefaultArtifactResolver.ResolutionGroup group) {
         List<ArtifactDownload> downloads = this.gatherDownloads(session, group);
         if (!downloads.isEmpty()) {
             Iterator var4 = downloads.iterator();
@@ -485,21 +485,21 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
         }
     }
 
-    private List<ArtifactDownload> gatherDownloads(RepositorySystemSession session, io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup group) {
+    private List<ArtifactDownload> gatherDownloads(RepositorySystemSession session, DefaultArtifactResolver.ResolutionGroup group) {
         LocalRepositoryManager lrm = session.getLocalRepositoryManager();
         List<ArtifactDownload> downloads = new ArrayList();
         Iterator var5 = group.items.iterator();
 
         while(true) {
             while(true) {
-                io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionItem item;
+                DefaultArtifactResolver.ResolutionItem item;
                 Artifact artifact;
                 do {
                     if (!var5.hasNext()) {
                         return downloads;
                     }
 
-                    item = (io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionItem)var5.next();
+                    item = (DefaultArtifactResolver.ResolutionItem)var5.next();
                     artifact = item.artifact;
                 } while(item.resolved.get());
 
@@ -542,12 +542,12 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
         }
     }
 
-    private void evaluateDownloads(RepositorySystemSession session, io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionGroup group) {
+    private void evaluateDownloads(RepositorySystemSession session, DefaultArtifactResolver.ResolutionGroup group) {
         LocalRepositoryManager lrm = session.getLocalRepositoryManager();
         Iterator var4 = group.items.iterator();
 
         while(var4.hasNext()) {
-            io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionItem item = (io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionItem)var4.next();
+            DefaultArtifactResolver.ResolutionItem item = (DefaultArtifactResolver.ResolutionItem)var4.next();
             ArtifactDownload download = item.download;
             if (download != null) {
                 Artifact artifact = download.getArtifact();
@@ -625,7 +625,7 @@ public class DefaultArtifactResolver implements ArtifactResolver, Service {
 
     static class ResolutionGroup {
         final RemoteRepository repository;
-        final List<io.airlift.resolver.internal.DefaultArtifactResolver.ResolutionItem> items = new ArrayList();
+        final List<DefaultArtifactResolver.ResolutionItem> items = new ArrayList();
 
         ResolutionGroup(RemoteRepository repository) {
             this.repository = repository;

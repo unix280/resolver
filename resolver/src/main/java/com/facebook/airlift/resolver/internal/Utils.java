@@ -1,4 +1,4 @@
-package io.airlift.resolver.internal;
+package com.facebook.airlift.resolver.internal;
 
 import org.eclipse.aether.RepositorySystemSession;
 import org.eclipse.aether.artifact.Artifact;

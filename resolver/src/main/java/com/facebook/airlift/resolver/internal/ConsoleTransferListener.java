@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.airlift.resolver.internal;
+package com.facebook.airlift.resolver.internal;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

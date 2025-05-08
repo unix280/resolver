@@ -11,13 +11,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.airlift.resolver;
+package com.facebook.airlift.resolver;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import io.airlift.resolver.internal.ConsoleRepositoryListener;
-import io.airlift.resolver.internal.ConsoleTransferListener;
-import io.airlift.resolver.internal.DefaultArtifactResolver;
+import com.facebook.airlift.resolver.internal.ConsoleRepositoryListener;
+import com.facebook.airlift.resolver.internal.ConsoleTransferListener;
+import com.facebook.airlift.resolver.internal.DefaultArtifactResolver;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.project.DefaultProjectBuildingRequest;
 import org.apache.maven.project.MavenProject;

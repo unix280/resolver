@@ -7,7 +7,7 @@
         <version>105</version>
     </parent>
 
-    <groupId>io.airlift.resolver</groupId>
+    <groupId>com.facebook.airlift.resolver</groupId>
     <artifactId>resolver-root</artifactId>
     <version>1.7-SNASPSHOT</version>
     <packaging>pom</packaging>
@@ -37,7 +37,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.airlift.resolver</groupId>
+                <groupId>com.facebook.airlift.resolver</groupId>
                 <artifactId>resolver</artifactId>
                 <version>${project.version}</version>
             </dependency>
